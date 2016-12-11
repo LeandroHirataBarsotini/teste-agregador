@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.1" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/web-facesconfig_2_1.xsd">
+<!-- richafaces 3.3.3 e jsf 1.2
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd" version="1.2">
+-->
+
+	<application>
+		<message-bundle>br.com.testes.teste.i18n.home.home</message-bundle>
+		<locale-config>
+			<default-locale>pt_BR</default-locale>
+			<supported-locale>en_US</supported-locale>
+		</locale-config>
+		<resource-bundle>
+			<base-name>br.com.testes.teste.i18n.home.home</base-name>
+			<var>msgHome</var>
+		</resource-bundle>
+	</application>
+
+	<application>
+		<message-bundle>br.com.testes.teste.i18n.rich.rich</message-bundle>
+		<locale-config>
+			<default-locale>pt_BR</default-locale>
+			<supported-locale>en_US</supported-locale>
+		</locale-config>
+		<resource-bundle>
+			<base-name>br.com.testes.teste.i18n.rich.rich</base-name>
+			<var>msgRich</var>
+		</resource-bundle>
+	</application>
+
+</faces-config>

@@ -11,5 +11,6 @@ public interface UsuarioService {
 
 	public String obterNomeUsuario(Long id);
 	public List<UsuarioVO> listarUsuarios();
+	public List<UsuarioVO> listarUsuariosPorNome(String nome);
 	
 }

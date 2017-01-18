@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -14,6 +15,10 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="T_USUARIO")
+@NamedQuery(
+		name="usuariosPorNome",
+		query="SELECT u FROM UsuarioVO u WHERE u.nome = :NOME_USUARIO ORDER BY u.nome "
+	)
 public class UsuarioVO {
 
 	@Id

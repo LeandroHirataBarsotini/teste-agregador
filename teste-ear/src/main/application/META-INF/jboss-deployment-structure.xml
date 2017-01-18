@@ -9,6 +9,7 @@
         </resources>
         <dependencies>
         	<module name="com.oracle.ojdbc6" export="TRUE" />
+        	<module name="org.eclipse.persistence" export="TRUE"/>
         </dependencies>
     </deployment>
     <sub-deployment name="teste-web.war">

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.persistence.NamedQuery;
 
 import br.com.testes.teste.service.UsuarioService;
 import br.com.testes.teste.vo.UsuarioVO;
@@ -31,7 +32,13 @@ public class UsuarioManagedBean {
 			}
 		}
 		
+		listarUsuariosPorNome();
+		
 		return usuarioService.obterNomeUsuario(1L);
+	}
+	
+	public void listarUsuariosPorNome() {
+		System.out.println("teste com @NamedQuery: " + usuarioService.listarUsuariosPorNome("NOME 1").size());
 	}
 	
 }

@@ -5,7 +5,8 @@ import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceUnit;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 import javax.persistence.Query;
 
 import br.com.testes.teste.service.UsuarioService;
@@ -17,11 +18,11 @@ import br.com.testes.teste.vo.UsuarioVO;
 @LocalBean
 public class UsuarioBean implements UsuarioService {
 
-	//private static EntityManagerFactory factory = Persistence.createEntityManagerFactory(Constants.PERSISTENCE_UNIT_NAME);;
-	//EntityManager em = factory.createEntityManager();
+	//private static EntityManagerFactory factory = Persistence.createEntityManagerFactory(Constants.PERSISTENCE_UNIT_NAME);
+	//private EntityManager em = factory.createEntityManager();
 	
-	@PersistenceUnit(unitName=Constants.PERSISTENCE_UNIT_NAME)
-	EntityManager em;
+	@PersistenceContext(unitName=Constants.PERSISTENCE_UNIT_NAME, type=PersistenceContextType.TRANSACTION)
+	private EntityManager em;
 	
 	public String obterNomeUsuario(Long id) {
 			
@@ -41,6 +42,15 @@ public class UsuarioBean implements UsuarioService {
 	public List<UsuarioVO> listarUsuarios() {
     	
 		Query q = em.createQuery("select u from UsuarioVO u");
+		
+		return q.getResultList();
+		
+	}
+	
+	public List<UsuarioVO> listarUsuariosPorNome(String nome) {
+
+		Query q = em.createNamedQuery("usuariosPorNome");
+		q.setParameter("NOME_USUARIO", nome);
 		
 		return q.getResultList();
 		
